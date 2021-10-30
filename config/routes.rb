@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
-  devise_scope :user do
-    root to: 'devise/sessions#new'
-  end
+  root to: 'posts#index'
 
   devise_for :users
+
+  resources :posts
+  get '/profile', to: 'users#profile'
 end

@@ -1,0 +1,20 @@
+<div class='users container'>
+  <div class='users__box mt-5'>
+    <h5 class='display-3 fw-bolder border-bottom border-dark border-3 mb-5'>Profile</h5>
+    <span class='fs-3 fw-bolder'>Name:</span>
+    <p class='fs-4 mb-5'><%= name %></p>
+
+    <span class='fs-3 fw-bolder'>Bio:</span>
+    <p class='fs-4 mb-5'><%= bio %></p>
+
+    <span class='fs-3 fw-bolder'>Likes:</span>
+    <p class='fs-4 mb-5'><%= likes %></p>
+
+    <span class='fs-3 fw-bolder'>Dislikes:</span>
+    <p class='fs-4 mb-5'><%= dislikes %></p>
+
+    <div class='d-grid col-2 float-end'>
+      <%= link_to 'Edit', root_path, class: 'btn btn-dark btn-lg' %>
+    </div>
+  </div>
+</div>
