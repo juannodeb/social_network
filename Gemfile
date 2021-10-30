@@ -14,6 +14,7 @@ gem 'devise', '~> 4.8'
 
 # FRONT
 gem 'sass-rails', '>= 6'
+gem "view_component", require: "view_component/engine"
 gem 'webpacker', '~> 5.0'
 
 # MISC
