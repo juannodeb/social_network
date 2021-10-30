@@ -28,9 +28,13 @@ ActiveRecord::Schema.define(version: 2021_10_30_165326) do
   create_table "interactions", force: :cascade do |t|
     t.integer "interacted_on_id"
     t.string "interacted_on_type"
+    t.integer "action"
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["action"], name: "index_interactions_on_action"
+    t.index ["interacted_on_id"], name: "index_interactions_on_interacted_on_id"
+    t.index ["interacted_on_type"], name: "index_interactions_on_interacted_on_type"
     t.index ["user_id"], name: "index_interactions_on_user_id"
   end
 
