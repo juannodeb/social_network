@@ -1,6 +1,7 @@
 <nav class='navbar navbar-dark bg-dark'>
   <div class='container-fluid'>
     <%= link_to 'SocialNetwork', root_path, class: 'navbar-brand mx-auto fw-bolder' %>
+    <%= link_to 'Profile', profile_path, class: 'text-white text-decoration-none ms-0 me-5' if current_user.present? %>
     <%= link_to 'Log out', destroy_user_session_path, :method => :delete, class: 'btn btn-outline-light' if current_user.present? %>
   </div>
 </nav>

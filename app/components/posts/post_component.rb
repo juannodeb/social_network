@@ -22,4 +22,8 @@ class Posts::PostComponent < ViewComponent::Base
   def id
     post.id
   end
+
+  def user_id
+    post.user.id
+  end
 end

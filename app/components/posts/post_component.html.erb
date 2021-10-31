@@ -5,8 +5,8 @@
       <h6 class="card-subtitle mb-2 text-muted float-end">creator: <%= creator %></h6>
       <p class="card-text my-5"><%= content %></p>
       <div class='float-end'>
-        <%= link_to 'Like', interactions_path, class: 'btn btn-outline-success' %>
-        <%= link_to 'Dislike', interactions_path, class: 'btn btn-outline-danger' %>
+        <%= link_to 'Like', set_like_post_path, method: :put, class: 'btn btn-outline-success' %>
+        <%= link_to 'Dislike', set_dislike_post_path, method: :put, class: 'btn btn-outline-danger' %>
       </div>
     </div>
   </div>
@@ -22,7 +22,7 @@
       <div class="card">
         <div class="card-body">
           <h6 class="card-subtitle mb-2 text-muted float-end"><%= comment.created_at.strftime('%B %d, %Y') %></h6>
-          <h5 class="card-title fw-bolder border-bottom border-dark border-1"><%= comment.user.name %></h5>
+          <h5 class="card-title fw-bolder border-bottom border-dark border-1"><%= comment.user.name %> - <%= comment.id %></h5>
           <p class="card-text mt-3 mb-5"><%= comment.content %></p>
           <div class='float-end'>
             <%= link_to 'Like', interactions_path, class: 'btn btn-outline-success' %>

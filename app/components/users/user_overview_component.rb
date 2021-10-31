@@ -16,10 +16,10 @@ class Users::UserOverviewComponent < ViewComponent::Base
   end
 
   def likes
-    user.interactions.likes.count
+    user.interactions.like.count
   end
 
   def dislikes
-    user.interactions.dislikes.count
+    user.interactions.dislike.count
   end
 end

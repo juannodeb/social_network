@@ -4,8 +4,8 @@ class Interaction < ApplicationRecord
   belongs_to :interacted_on, polymorphic: true
 
   # Scopes
-  scope :likes, -> { where(interacted_on_type: 'likes') }
-  scope :dislikes, -> { where(interacted_on_type: 'dislikes') }
+  scope :comments, -> { where(interacted_on_type: 'Comment') }
+  scope :posts,    -> { where(interacted_on_type: 'Post') }
 
   # Enums
   enum action: { like: 0, dislike: 1 }
