@@ -1,0 +1,10 @@
+.posts {
+  a {
+    text-decoration: none;
+    color: #212529;
+  }
+
+  &__form {
+    &--text-input { height: 400px; }
+  }
+}

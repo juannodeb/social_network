@@ -18,21 +18,28 @@ post = "Lorem ipsum dolor sit amet, consectetur adipiscing elit."\
 comment = 'This is a comment'
 
 User.create!([
-  { id: 1, first_name: 'Juan', last_name: 'Bedón', bio: post, email: 'juan@fm.com', password: '123456789'},
-  { id: 2, first_name: 'Foonkie', last_name: 'Monkey', bio: post, email: 'foonkie@fm.com', password: '123456789'}
+  { first_name: 'Juan', last_name: 'Bedón', bio: post, email: 'juan@fm.com', password: '123456789' },
+  { first_name: 'Foonkie', last_name: 'Monkey', bio: post, email: 'foonkie@fm.com', password: '123456789' }
 ])
+
+first_user_id = User.first.id
+last_user_id  = User.last.id
 
 Post.create!([
-  { id: 1, content: post, user_id: 1},
-  { id: 2, content: post, user_id: 2}
+  { content: post, user_id: first_user_id },
+  { content: post, user_id: last_user_id }
 ])
+
+first_post_id = Post.first.id
 
 Comment.create!([
-  { id: 1, content: comment, post_id: 1, user_id: 1},
-  { id: 2, content: comment, post_id: 1, user_id: 2}
+  { content: comment, post_id: first_post_id, user_id: first_user_id },
+  { content: comment, post_id: first_post_id, user_id: last_user_id }
 ])
 
+last_comment_id = Comment.last.id
+
 Interaction.create!([
-  { id: 1, interacted_on_id: 1, interacted_on_type: 'Post', action: 0, user_id: 2 },
-  { id: 2, interacted_on_id: 2, interacted_on_type: 'Comment', action: 0, user_id: 1 }
+  { interacted_on_id: first_post_id, interacted_on_type: 'Post', action: 0, user_id: first_user_id },
+  { interacted_on_id: last_comment_id, interacted_on_type: 'Comment', action: 0, user_id: first_user_id }
 ])

@@ -9,7 +9,11 @@ class Posts::PostOverviewComponent < ViewComponent::Base
   end
 
   def content
-    post.content
+    post.content.truncate(130)
+  end
+
+  def id
+    post.id
   end
 
   def user

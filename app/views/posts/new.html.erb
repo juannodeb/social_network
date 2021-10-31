@@ -1,0 +1,10 @@
+<div class='container'>
+  <%= link_to 'Back', posts_path, class: 'btn btn-outline-dark mb-4' %>
+  <div class="card border-0">
+    <div class="card-body ps-0">
+      <h2 class='card-title fs-1 mb-4'>New post</h2>
+
+      <%= render 'form', post: @post %>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,10 @@
+<div class='container'>
+  <%= link_to 'Back', 'javascript:history.back()', class: 'btn btn-outline-dark mb-4' %>
+  <div class='card border-0'>
+    <div class='card-body ps-0'>
+      <h2 class='card-title fs-1 mb-4'>New comment</h2>
+
+      <%= render 'form', comment: @comment %>
+    </div>
+  </div>
+</div>

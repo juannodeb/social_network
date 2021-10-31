@@ -1,6 +1,11 @@
-<div class='posts container'>
+<div class='posts'>
   <%= link_to post do %>
-    <div class='posts__content'><%= content %></div>
-    <p class='posts__name'><%= user %></p>
+    <div class='card mb-3'>
+      <div class='card-body'>
+        <h6 class='card-subtitle text-muted float-end'><%= user %></h6>
+        <h5 class='card-title fw-bolder border-bottom border-dark border-1'>Post <%= id %></h5>
+        <p class='posts__content text-center my-3'><%= content %></p>
+      </div>
+    </div>
   <% end %>
 </div>

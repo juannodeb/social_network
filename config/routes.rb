@@ -3,6 +3,9 @@ Rails.application.routes.draw do
 
   devise_for :users
 
+  resources :comments
+  resources :interactions, only: [:create, :destroy]
   resources :posts
+
   get '/profile', to: 'users#profile'
 end

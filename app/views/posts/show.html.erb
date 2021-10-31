@@ -1,0 +1,5 @@
+<div class='container'>
+  <%= link_to 'All posts', posts_path, class: 'btn btn-outline-dark mb-5' %>
+  <%= link_to 'Create another post', new_post_path, class: 'btn btn-dark float-end mb-5' %>
+  <%= render Posts::PostComponent.new(post: @post) %>
+</div>

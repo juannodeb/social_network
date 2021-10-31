@@ -1,0 +1,37 @@
+<div class='post'>
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title fw-bolder border-bottom border-dark border-1">Post <%= id %></h5>
+      <h6 class="card-subtitle mb-2 text-muted float-end">creator: <%= creator %></h6>
+      <p class="card-text my-5"><%= content %></p>
+      <div class='float-end'>
+        <%= link_to 'Like', interactions_path, class: 'btn btn-outline-success' %>
+        <%= link_to 'Dislike', interactions_path, class: 'btn btn-outline-danger' %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr class='mt-5' />
+
+<%= link_to 'Add comment', new_comment_path(post_id: params[:id]), class: 'btn btn-dark float-end mb-5' %>
+
+<% if @post.comments.present? %>
+  <% @post.comments.ordered_by_created_at.each do |comment| %>
+    <div class='comments col-6 offset-3 mb-3'>
+      <div class="card">
+        <div class="card-body">
+          <h6 class="card-subtitle mb-2 text-muted float-end"><%= comment.created_at.strftime('%B %d, %Y') %></h6>
+          <h5 class="card-title fw-bolder border-bottom border-dark border-1"><%= comment.user.name %></h5>
+          <p class="card-text mt-3 mb-5"><%= comment.content %></p>
+          <div class='float-end'>
+            <%= link_to 'Like', interactions_path, class: 'btn btn-outline-success' %>
+            <%= link_to 'Dislike', interactions_path, class: 'btn btn-outline-danger' %>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+<% else %>
+  <small class='d-flex justify-content-center text-muted mt-5'>No comments yet</small>
+<% end %>
